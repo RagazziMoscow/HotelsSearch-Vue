@@ -1,0 +1,14 @@
+{
+  "name": "hotel-vue",
+  "authors": [
+    "Ilya <iliya5376@mail.com>"
+  ],
+  "description": "",
+  "main": "index.html",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "dependencies": {
+    "vue": "^2.4.4"
+  }
+}

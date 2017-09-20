@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hotels</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script type="text/javascript" src="libs/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="root">
+  <div class="app">
+    <div class="header">Hotel Look</div>
+    <div class="search-bar">
+      <i class="search-icon fa fa-search"></i>
+
+      <input class="search-input" type="text"
+        v-model="searchQuery"
+        placeholder="Look for a hotel"
+        onChange="{this.props.onSearch}"/>
+
+      <div class="hotels-list">
+        <div v-for="hotel in displayedHotels" class="hotel-card">
+            <img class="hotel-image" v-bind:src="hotel.image">
+
+            <div class="hotel-body">
+              <h3 class="hotel-title">
+                {{ hotel.name }}
+              </h3>
+
+              <p class="hotel-description">
+                {{
+                  (hotel.description.length > maxLength)?
+                   hotel.description.substring(0, maxLength) + '...':
+                   hotel.description
+                }}
+              </p>
+            </div>
+
+            <div class="hotel-book">
+              <span class="hotel-price">{{ hotel.price }}</span>
+              <a
+                v-bind:href="'https://www.airbnb.com/rooms/'+ hotel.id"
+                target="_blank"
+                class="hotel-book-link"
+              >
+                Book now!
+              </a>
+            </div>
+      
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+  <script src="js/main.js"></script>
+</body>
+</html>
