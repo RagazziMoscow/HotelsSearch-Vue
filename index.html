@@ -21,6 +21,14 @@
 
       <div class="hotels-list">
         <div v-for="hotel in displayedHotels" class="hotel-card">
+          <span>{{hotel.name}}</span>
+          <hotel-component :image="hotel.image" 
+                           :name="hotel.name"
+                           :desc="hotel.description"
+                           :price="hotel.price"
+                           :id="hotel.id">
+          </hotel-component>
+            <!--
             <img class="hotel-image" v-bind:src="hotel.image">
 
             <div class="hotel-body">
@@ -47,6 +55,7 @@
                 Book now!
               </a>
             </div>
+          -->
       
       </div>
     </div>

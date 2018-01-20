@@ -3,68 +3,76 @@
 /* Global styles */
 
 body {
-    font-size: 15px;
     font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
 }
 
 
 /* App */
 
 .app {
-    max-width: 700px;
     width: 100%;
+    max-width: 700px;
     margin: 40px auto;
 }
 
 .header {
     font-family: 'Galada', cursive;
     font-size: 42px;
-    text-align: center;
+
     width: 100%;
+
+    text-align: center;
 }
 
 .hotels-list {
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+
+    width: 100%;
     margin-top: 16px;
     margin-bottom: 16px;
-    width: 100%;
+
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 
 /* Search bar */
 
 .search-bar {
-    width: 100%;
     position: relative;
+
+    width: 100%;
 }
 
 .search-icon {
     font-size: 32px;
+
     position: absolute;
-    left: 0;
     top: 12px;
+    left: 0;
 }
 
 .search-input {
+    font-size: 24px;
+
+    box-sizing: border-box;
     width: 100%;
     padding-top: 16px;
-    padding-left: 42px;
     padding-bottom: 16px;
-    box-sizing: border-box;
+    padding-left: 42px;
 
     border: none;
     border-bottom: 4px solid black;
-    transition: border-bottom .3s linear;
 
-    font-size: 24px;
+    transition: border-bottom .3s linear;
 }
 
-    .search-input:focus {
-        border-bottom: 4px solid #FFCA28;
-        outline: 0;
-    }
+.search-input:focus {
+    border-bottom: 4px solid #ffca28;
+
+    outline: 0;
+}
 
 
 /* Hotel card */
@@ -91,23 +99,28 @@ body {
 }
 
 .hotel-book {
-    width: 100%;
     display: flex;
+
+    width: 100%;
+
     align-items: center;
     justify-content: space-between;
 }
 
 .hotel-book-link {
-    text-decoration: none;
     padding: 3px 12px;
-    background-color: #FFC107;
-    color: white;
+
     border-radius: 4px;
+
+    color: white;
+    background-color: #ffc107;
+
+    text-decoration: none;
 }
 
-    .hotel-book-link:hover {
-        background-color: #FFCA28;
-    }
+.hotel-book-link:hover {
+    background-color: #ffca28;
+}
 
 .hotel-price {
     font-weight: 600;
