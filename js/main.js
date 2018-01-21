@@ -26,17 +26,17 @@ const HOTELS = [{
 
 Vue.component('hotel-image', {
   props: ['src'],
-  template: '<img class="hotel-image" :src="src">'
+  template: '#hotel-image'
 });
 
 Vue.component('hotel-title', {
   props: ['name'],
-  template: '<h3 class="hotel-title">{{ name }}</h3>'
+  template: '#hotel-title'
 });
 
 Vue.component('hotel-description', {
   props: ['content'],
-  template: '<p class="hotel-description">{{description}}</p>',
+  template: '#hotel-description',
   data: function() {
     const description = (this.content.length > MAX_DESC_LENGTH)?
       this.content.substring(0, MAX_DESC_LENGTH) + '...' : this.content;
@@ -49,13 +49,7 @@ Vue.component('hotel-description', {
 
 Vue.component('hotel-book', {
   props: ['price', 'id'],
-  template:
-    '<div class="hotel-book">' +
-    '<span class="hotel-price">{{ price }}</span>' +
-    '<a v-bind:href="src" target="_blank" class="hotel-book-link">' +
-    'Book now!' +
-    '</a>' +
-    '</div>',
+  template: '#hotel-book',
   data: function() {
     return {
         src: '\'https://www.airbnb.com/rooms/\'' + this.id
@@ -63,17 +57,9 @@ Vue.component('hotel-book', {
   }
 });
 
-Vue.component('hotel-component', {
+Vue.component('hotel', {
   props: ['image', 'name', 'desc', 'price', 'id'],
-  template: 
-    '<div>' +
-      '<hotel-image :src="image"></hotel-image>' +
-      '<div class="hotel-body">' +
-      '<hotel-title :name="name"></hotel-title>' +
-      '<hotel-description :content="desc"></hotel-description>' +
-      '<hotel-book :price="price" :id="id"></hotel-book>' +
-      '</div>' +
-    '</div>'
+  template: '#hotel-component'
 });
 
 const MAX_DESC_LENGTH = 100;

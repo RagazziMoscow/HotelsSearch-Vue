@@ -15,53 +15,54 @@
       <i class="search-icon fa fa-search"></i>
 
       <input class="search-input" type="text"
-        v-model="searchQuery"
-        placeholder="Look for a hotel"
-        onChange="{this.props.onSearch}"/>
+          v-model="searchQuery"
+          placeholder="Look for a hotel"
+          onChange="{this.props.onSearch}"/>
 
       <div class="hotels-list">
         <div v-for="hotel in displayedHotels" class="hotel-card">
-          <span>{{hotel.name}}</span>
-          <hotel-component :image="hotel.image" 
+          <hotel :image="hotel.image" 
                            :name="hotel.name"
                            :desc="hotel.description"
                            :price="hotel.price"
                            :id="hotel.id">
-          </hotel-component>
-            <!--
-            <img class="hotel-image" v-bind:src="hotel.image">
-
-            <div class="hotel-body">
-              <h3 class="hotel-title">
-                {{ hotel.name }}
-              </h3>
-
-              <p class="hotel-description">
-                {{
-                  (hotel.description.length > maxLength)?
-                   hotel.description.substring(0, maxLength) + '...':
-                   hotel.description
-                }}
-              </p>
-            </div>
-
-            <div class="hotel-book">
-              <span class="hotel-price">{{ hotel.price }}</span>
-              <a
-                v-bind:href="'https://www.airbnb.com/rooms/'+ hotel.id"
-                target="_blank"
-                class="hotel-book-link"
-              >
-                Book now!
-              </a>
-            </div>
-          -->
-      
+        </hotel>     
       </div>
     </div>
     </div>
   </div>
 </div>
+
+  <script type="text/x-template" id="hotel-image">
+    <img class="hotel-image" :src="src">
+  </script>
+
+  <script type="text/x-template" id="hotel-title">
+    <h3 class="hotel-title">{{ name }}</h3>
+  </script>
+
+  <script type="text/x-template" id="hotel-description">
+    <p class="hotel-description">{{ description }}</p>
+  </script>
+
+  <script type="text/x-template" id="hotel-book">
+    <div class="hotel-book">
+      <span class="hotel-price">{{ price }}</span>
+      <a v-bind:href="src" target="_blank" class="hotel-book-link">Book now!</a>
+    </div>
+  </script>
+
+  <script type="text/x-template" id="hotel-component">
+    <div>
+      <hotel-image :src="image"></hotel-image>
+      <div class="hotel-body">
+        <hotel-title :name="name"></hotel-title>
+        <hotel-description :content="desc"></hotel-description>
+        <hotel-book :price="price" :id="id"></hotel-book>
+      </div>
+    </div>
+  </script>
+
   <script src="js/main.js"></script>
 </body>
 </html>
